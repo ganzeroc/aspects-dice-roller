@@ -4,9 +4,9 @@ Comes with 'Dice So Nice!' support.
 Usage: 
 ```
 /r 1db et autre
+```
 
-
-Credits
+# Credits
 
 Thanks to Bithir and his Symbaroum-Bithir-Mods as a uge inspiration for this module 
 https://github.com/bithir/symbaroum-bithir-mod/tree/master
