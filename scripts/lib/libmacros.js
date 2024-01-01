@@ -9,10 +9,10 @@ export class AspectMacros
         let dialog_content = `  
         <div class="form-group aspectmod">
         <div class="dialogHeader">
-                    <div class="dialogEntry"><label for="base" class="dialogEntry">Location dice</label></div><div><input type="text" name="Base" value="1" class="inspirationInput"></div>
+                    <div class="dialogEntry"><label for="base" class="dialogEntry">dés base</label></div><div><input type="text" name="Base" value="3" class="inspirationInput"></div>
         </div>
         <div class="dialogHeader">
-                    <div class="dialogEntry"><label for="E1" class="dialogEntry">Event dice</label></div><div><input type="text" name="E1" value="1" class="inspirationInput"></div>
+                    <div class="dialogEntry"><label for="E1" class="dialogEntry">dés E1</label></div><div><input type="text" name="E1" value="3" class="inspirationInput"></div>
         </div>
         <br/>
         </div>`;
