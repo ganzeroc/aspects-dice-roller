@@ -35,10 +35,10 @@ export class AspectDie extends Die {
     static MODIFIERS = {
     };
 
-    /** @override */
-    get total(){
-        return this.results.length;
-    }
+    // /** @override */
+    // get total(){
+    //     return this.results.length;
+    // }
 
     /* -------------------------------------------- */
 

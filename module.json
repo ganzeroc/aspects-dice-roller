@@ -24,6 +24,14 @@
 		  "path": "languages/en.json"
 		}
 	  ],
+	"packs": [
+		{
+		  "name": "aspects-mods",
+		  "label": "Aspect's mods",
+		  "type": "Adventure",
+		  "module": "aspects-mods"
+		}
+	  ],
 	"url": "#{URL}#",
 	"manifest": "#{MANIFEST}#",
 	"download": "#{DOWNLOAD}#"

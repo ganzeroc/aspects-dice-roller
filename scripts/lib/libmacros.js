@@ -82,8 +82,8 @@ export class AspectMacros
         x.render(true);
     }
 
-    testroll(){
-        rollString.push(`${3}dB`)
+    async testroll(){
+        
     }
 
     assembleInspirationResults(rolls) {

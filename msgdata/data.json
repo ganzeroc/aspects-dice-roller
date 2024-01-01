@@ -1,0 +1,8 @@
+{
+    "messages": [
+        {
+            "version":1,
+            "message":"<h1>Bienvenue sur l'Aspect Dice Roller</h1><br />Ce module vous permet de lancer les dés spécifiques à Aspect dans Foundry.<br/>"
+        }
+    ]
+}
