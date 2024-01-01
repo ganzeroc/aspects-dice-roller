@@ -1,8 +1,23 @@
-2024/01/01-16:03:45.856 3bd0 Recovering log #168
-2024/01/01-16:03:45.861 3bd0 Delete type=0 #168
-2024/01/01-16:03:45.861 3bd0 Delete type=3 #166
-2024/01/01-16:38:57.326 6b8c Level-0 table #173: started
-2024/01/01-16:38:57.326 6b8c Level-0 table #173: 0 bytes OK
-2024/01/01-16:38:57.329 6b8c Delete type=0 #171
-2024/01/01-16:38:57.330 6b8c Manual compaction at level-0 from '!adventures!EOLvmewkCU75UStz' @ 72057594037927935 : 1 .. '!adventures!EOLvmewkCU75UStz' @ 0 : 0; will stop at (end)
-2024/01/01-16:38:57.330 6b8c Manual compaction at level-1 from '!adventures!EOLvmewkCU75UStz' @ 72057594037927935 : 1 .. '!adventures!EOLvmewkCU75UStz' @ 0 : 0; will stop at (end)
+2024/01/01-18:01:53.165 5b50 Recovering log #175
+2024/01/01-18:01:53.165 5b50 Level-0 table #177: started
+2024/01/01-18:01:53.166 5b50 Level-0 table #177: 991 bytes OK
+2024/01/01-18:01:53.172 5b50 Delete type=0 #175
+2024/01/01-18:01:53.172 5b50 Delete type=3 #174
+2024/01/01-18:02:01.948 5720 Level-0 table #180: started
+2024/01/01-18:02:01.948 5720 Level-0 table #180: 0 bytes OK
+2024/01/01-18:02:01.950 5720 Delete type=0 #178
+2024/01/01-18:02:01.951 5720 Manual compaction at level-0 from '!adventures!EOLvmewkCU75UStz' @ 72057594037927935 : 1 .. '!adventures!EOLvmewkCU75UStz' @ 0 : 0; will stop at '!adventures!EOLvmewkCU75UStz' @ 10 : 1
+2024/01/01-18:02:01.951 5720 Compacting 1@0 + 0@1 files
+2024/01/01-18:02:01.952 5720 Generated table #181@0: 1 keys, 946 bytes
+2024/01/01-18:02:01.952 5720 Compacted 1@0 + 0@1 files => 946 bytes
+2024/01/01-18:02:01.953 5720 compacted to: files[ 0 1 1 0 0 0 0 ]
+2024/01/01-18:02:01.954 5720 Delete type=2 #177
+2024/01/01-18:02:01.955 5720 Manual compaction at level-0 from '!adventures!EOLvmewkCU75UStz' @ 10 : 1 .. '!adventures!EOLvmewkCU75UStz' @ 0 : 0; will stop at (end)
+2024/01/01-18:02:01.955 5720 Manual compaction at level-1 from '!adventures!EOLvmewkCU75UStz' @ 72057594037927935 : 1 .. '!adventures!EOLvmewkCU75UStz' @ 0 : 0; will stop at '!adventures!EOLvmewkCU75UStz' @ 11 : 1
+2024/01/01-18:02:01.955 5720 Compacting 1@1 + 1@2 files
+2024/01/01-18:02:01.956 5720 Generated table #182@1: 1 keys, 946 bytes
+2024/01/01-18:02:01.956 5720 Compacted 1@1 + 1@2 files => 946 bytes
+2024/01/01-18:02:01.957 5720 compacted to: files[ 0 0 1 0 0 0 0 ]
+2024/01/01-18:02:01.958 5720 Delete type=2 #157
+2024/01/01-18:02:01.958 5720 Delete type=2 #181
+2024/01/01-18:02:01.959 5720 Manual compaction at level-1 from '!adventures!EOLvmewkCU75UStz' @ 11 : 1 .. '!adventures!EOLvmewkCU75UStz' @ 0 : 0; will stop at (end)

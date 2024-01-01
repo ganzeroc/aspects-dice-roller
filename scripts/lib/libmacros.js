@@ -1,7 +1,72 @@
 
 export class AspectMacros
 {
-    async RollAspects() {
+    async RollAspects(myDice) {
+        //dans la barre de raccourcis macro, script : game.aspectmod.macros.RollAspects()
+        const api = game.aspectmod.api;
+
+        let Obacle = 0
+
+        let rollString = [];
+        if(!isNaN(myDice) || myDice !== 0) {                                                    
+            rollString.push(`3d${myDice}`);
+        }
+
+        console.log("RollString "+ rollString.join('+'));
+        let rolls = await new Roll(rollString.join('+')).evaluate({async:true});
+        let rollData = {
+            formula: rolls.formula,
+            rolls: this.assembleInspirationResults(rolls)
+        }
+        const template = await renderTemplate(`${game.aspectmod.config.templatePath}/aspectroll.hbs`, rollData);
+        
+
+
+        // for(const myTooltip of rolls.tooltip) {
+        //     var count = (myTooltip.match(/is/o) || []).length;
+        //      Obacle +=count
+        //      console.log(Obacle)
+        // }
+        
+        let chatData = {
+            user: game.user.id,
+            speaker: ChatMessage.getSpeaker({ 
+            alias: api.localize('DBase_results')
+            }),
+            type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+            roll: JSON.stringify(rolls),
+            rollMode: game.settings.get('core', 'rollMode'),
+            content: template,
+        };
+
+
+
+        if(game.modules.get("dice-so-nice")?.active ) {
+            const dsnsettings = game.user.getFlag("dice-so-nice", "settings");
+
+            if(!dsnsettings || dsnsettings.hideAfterRoll) {
+                if(!dsnsettings) {
+                    await game.user.setFlag('dice-so-nice', 'settings', game.dice3d.constructor.CONFIG() );
+                }
+                const timeout = parseInt(game.user.getFlag("dice-so-nice", "settings").timeBeforeHide);
+                if(isNaN(timeout) ) {
+                    return;
+                }
+                // Not persisted - just change in-memory value for the time it takes to make the
+                // roll and the time it takes before dsn tries to clear the dices from the display
+                game.user.getFlag("dice-so-nice", "settings").hideAfterRoll = false;
+                setTimeout(() => { 
+                        game.user.getFlag("dice-so-nice", "settings").hideAfterRoll = true;
+                    },
+                    timeout+500
+                );
+            }
+        }
+        ChatMessage.create(chatData);
+
+    }
+
+    async RollAspects2() {
         //dans la barre de raccourcis macro, script : game.aspectmod.macros.RollAspects()
 
 
@@ -84,9 +149,6 @@ export class AspectMacros
         x.render(true);
     }
 
-    async testroll(){
-        
-    }
 
     assembleInspirationResults(rolls) {
         let assembledResults = [];
