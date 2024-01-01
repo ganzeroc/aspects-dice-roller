@@ -5,7 +5,7 @@ import { AspectApi } from './api.js';
 
 const moduleId = 'aspects-dice-roller';
 const adventurePack = `${moduleId}.aspects-mods`;
-const adventureName = "Required items for Aspect's mods";
+const adventureName = "Required Dices for Aspect";
 
 Hooks.once('init', async function() {    
 
@@ -38,7 +38,7 @@ Hooks.once('init', async function() {
 });
 
 Hooks.once('ready', async function() {  
-        ModuleImport();
+        // ModuleImport();
         // sendDevMessage();
     // game.worldbuilding.info(`Module[${moduleId}] ready hook complete`);
 });
@@ -76,10 +76,10 @@ export async function ModuleImport() {
     await adventure.sheet.render(true);
 };
 
-// Hooks.once('diceSoNiceReady', (dice3d) => {
-//     dice3d.addColorset(BaseDie.diceSoNiceColorset);
-//     dice3d.addDicePreset(BaseDie.diceSoNiceDicePreset);
-//     dice3d.addColorset(E1Die.diceSoNiceColorset);
-//     dice3d.addDicePreset(E1Die.diceSoNiceDicePreset);
+Hooks.once('diceSoNiceReady', (dice3d) => {
+    dice3d.addColorset(BaseDie.diceSoNiceColorset);
+    dice3d.addDicePreset(BaseDie.diceSoNiceDicePreset);
+    dice3d.addColorset(E1Die.diceSoNiceColorset);
+    dice3d.addDicePreset(E1Die.diceSoNiceDicePreset);
 
-// });
+});

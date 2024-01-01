@@ -2,7 +2,9 @@
 export class AspectMacros
 {
     async RollAspects() {
-        //
+        //dans la barre de raccourcis macro, script : game.aspectmod.macros.RollAspects()
+
+
         const api = game.aspectmod.api;
         let dialog_content = `  
         <div class="form-group aspectmod">
