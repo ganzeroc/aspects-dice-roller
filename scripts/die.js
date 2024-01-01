@@ -107,7 +107,7 @@ export class BaseDie extends AspectDie {
 export class E1Die extends AspectDie {
 
     /** @override */
-    static DENOMINATION = "E";
+    static DENOMINATION = "e";
 
     /** @override */    
     get denomination() { return E1Die.DENOMINATION; }

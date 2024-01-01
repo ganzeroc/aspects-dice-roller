@@ -40,7 +40,7 @@ Hooks.once('init', async function() {
 Hooks.once('ready', async function() {  
         ModuleImport();
         // sendDevMessage();
-    game.worldbuilding.info(`Module[${moduleId}] ready hook complete`);
+    // game.worldbuilding.info(`Module[${moduleId}] ready hook complete`);
 });
 
 
@@ -50,10 +50,10 @@ export async function ModuleImport() {
     // Will overwrite existing assets. 
     //
     const moduleVersion = game.modules.get(moduleId)?.version;
-    if(!foundry.utils.isNewerVersion(moduleVersion, game.settings.get(moduleId, 'moduleVersion') ) ) {
-        game.worldbuilding.info(`moduleVersion[${moduleVersion}] is not newer than moduleVersion setting[${game.settings.get(moduleId, 'moduleVersion')}]`);
-        return;
-    }
+    // if(!foundry.utils.isNewerVersion(moduleVersion, game.settings.get(moduleId, 'moduleVersion') ) ) {
+    //     game.worldbuilding.info(`moduleVersion[${moduleVersion}] is not newer than moduleVersion setting[${game.settings.get(moduleId, 'moduleVersion')}]`);
+    //     return;
+    // }
 
     const id = Hooks.on('importAdventure', (adventure, formData, created, updated) => {
         // console.log('adventure',adventure,'formData',formData,'created',created,'updated',updated)
@@ -76,10 +76,10 @@ export async function ModuleImport() {
     await adventure.sheet.render(true);
 };
 
-Hooks.once('diceSoNiceReady', (dice3d) => {
-    dice3d.addColorset(BaseDie.diceSoNiceColorset);
-    dice3d.addDicePreset(BaseDie.diceSoNiceDicePreset);
-    dice3d.addColorset(E1Die.diceSoNiceColorset);
-    dice3d.addDicePreset(E1Die.diceSoNiceDicePreset);
+// Hooks.once('diceSoNiceReady', (dice3d) => {
+//     dice3d.addColorset(BaseDie.diceSoNiceColorset);
+//     dice3d.addDicePreset(BaseDie.diceSoNiceDicePreset);
+//     dice3d.addColorset(E1Die.diceSoNiceColorset);
+//     dice3d.addDicePreset(E1Die.diceSoNiceDicePreset);
 
-});
+// });
