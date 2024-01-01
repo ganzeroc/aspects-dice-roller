@@ -1,0 +1,25 @@
+{
+	"name": "aspects-dice-roller",
+	"title": "Aspects' Dice Roller",
+	"description": "Adds the ability to roll Aspects dice",
+	"version": "1.0.4",
+	"minimumCoreVersion" : "0.7.2",
+	"compatibleCoreVersion" : "0.7.7",
+	"author": "ThunderBrioche&OCG",
+	"esmodules": [
+		"./scripts/module.js"
+	],
+	"styles": [
+		"/css/module.css"
+	],
+	"languages": [
+		{
+		  "lang": "en",
+		  "name": "English",
+		  "path": "languages/en.json"
+		}
+	  ],
+	"url": "",
+	"manifest": "",
+	"download": ""
+}

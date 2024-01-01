@@ -1,0 +1,52 @@
+.aspectmod h1 {
+    display: block;
+  }
+  
+  .form-group.aspectmod .dialogHeader {
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  
+  .form-group.aspectmod .dialogEntry {
+    width: 10em;
+    min-width: 10em;
+  }
+  
+  .form-group.aspectmod .inspirationInput {
+    width: 5em;
+  }
+  
+  div .aspectmod .locationdie img {
+    background-color: #b9fb9d;
+    background-blend-mode: multiply;
+  }
+  
+  div .aspectmod .eventdie > img {
+    background-color: #f5adff;
+    background-blend-mode: multiply;
+  }
+  
+  div .aspectmod .creaturedie > img {
+    background-color: #fca1a1;
+    background-blend-mode: multiply;
+  }
+  
+  div .aspectmod .rewarddie > img {
+    background-color: #ffd500;
+    background-blend-mode: multiply;
+  }
+  
+  div .aspectmod .inspirationdie > img {
+    width: 32px;
+    margin-top: 5px;
+    margin-right: 5px;
+    float: left;
+    vertical-align: top;
+  }/*# sourceMappingURL=module.css.map */
