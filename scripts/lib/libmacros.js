@@ -5,7 +5,7 @@ export class AspectMacros
         //dans la barre de raccourcis macro, script : game.aspectmod.macros.RollAspects()
         const api = game.aspectmod.api;
 
-        let Obacle = 0
+        
 
         let rollString = [];
         if(!isNaN(myDice) || myDice !== 0) {                                                    
@@ -21,12 +21,7 @@ export class AspectMacros
         const template = await renderTemplate(`${game.aspectmod.config.templatePath}/aspectroll.hbs`, rollData);
         
 
-
-        // for(const myTooltip of rolls.tooltip) {
-        //     var count = (myTooltip.match(/is/o) || []).length;
-        //      Obacle +=count
-        //      console.log(Obacle)
-        // }
+        // Obacle = this.sommeAspects(rollData)
         
         let chatData = {
             user: game.user.id,
@@ -37,6 +32,14 @@ export class AspectMacros
             roll: JSON.stringify(rolls),
             rollMode: game.settings.get('core', 'rollMode'),
             content: template,
+        };
+
+        let chatData2 = {
+            user: game.user.id,
+            speaker: ChatMessage.getSpeaker({ 
+            alias: "Totaux :"
+            }),
+            content: this.sommeAspects(rollData),
         };
 
 
@@ -63,6 +66,7 @@ export class AspectMacros
             }
         }
         ChatMessage.create(chatData);
+        ChatMessage.create(chatData2);
 
     }
 
@@ -160,5 +164,27 @@ export class AspectMacros
             }
         }
         return assembledResults;
+    }
+
+    sommeAspects(rollData) {
+        let Obacle = 0
+        let Forme_Animale = 0
+        let Element = 0
+        var Result =""
+
+        for(const dice of rollData.rolls) {
+                var count = (dice.tooltip.match(/O/g) || []).length;
+                Obacle +=count
+                var count = (dice.tooltip.match(/A/g) || []).length;
+                Forme_Animale +=count
+                var count = (dice.tooltip.match(/E/g) || []).length;
+                Element +=count
+                console.log("tooltip "+ dice.tooltip)
+                // console.log(Obacle)
+        }
+
+        Result += "Obacle : " + Obacle.toString() + "\n" +"Forme Animale : " + Forme_Animale.toString() + "\n" +"Element : " + Element.toString() 
+        console.log(Result)
+        return Result;
     }
 }
