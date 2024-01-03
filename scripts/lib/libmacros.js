@@ -14,15 +14,25 @@ export class AspectMacros
 
         console.log("RollString "+ rollString.join('+'));
         let rolls = await new Roll(rollString.join('+')).evaluate({async:true});
+
+        let DataSomme = {
+            rolls: this.assembleInspirationResults(rolls),
+        }
+
         let rollData = {
             formula: rolls.formula,
-            rolls: this.assembleInspirationResults(rolls)
+            rolls: this.assembleInspirationResults(rolls),
+            myMessage: this.sommeAspects(DataSomme)
         }
+
+
         const template = await renderTemplate(`${game.aspectmod.config.templatePath}/aspectroll.hbs`, rollData);
         
 
         // Obacle = this.sommeAspects(rollData)
         
+
+
         let chatData = {
             user: game.user.id,
             speaker: ChatMessage.getSpeaker({ 
@@ -34,13 +44,13 @@ export class AspectMacros
             content: template,
         };
 
-        let chatData2 = {
-            user: game.user.id,
-            speaker: ChatMessage.getSpeaker({ 
-            alias: "Totaux :"
-            }),
-            content: this.sommeAspects(rollData),
-        };
+        // let chatData2 = {
+        //     user: game.user.id,
+        //     speaker: ChatMessage.getSpeaker({ 
+        //     alias: "Totaux :"
+        //     }),
+        //     content: this.sommeAspects(rollData),
+        // };
 
 
 
@@ -66,7 +76,7 @@ export class AspectMacros
             }
         }
         ChatMessage.create(chatData);
-        ChatMessage.create(chatData2);
+        // ChatMessage.create(chatData2);
 
     }
 
@@ -166,13 +176,13 @@ export class AspectMacros
         return assembledResults;
     }
 
-    sommeAspects(rollData) {
+    sommeAspects(roll) {
         let Obacle = 0
         let Forme_Animale = 0
         let Element = 0
         var Result =""
 
-        for(const dice of rollData.rolls) {
+        for(const dice of roll.rolls) {
                 var count = (dice.tooltip.match(/O/g) || []).length;
                 Obacle +=count
                 var count = (dice.tooltip.match(/A/g) || []).length;
