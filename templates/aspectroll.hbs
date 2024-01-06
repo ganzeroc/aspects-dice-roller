@@ -7,5 +7,7 @@
         </div>
     </div>
     {{/each}}
-    <div>{{myMessage}}</div>
+    {{#each myMessage}}
+    <div>{{this}}</div>
+    {{/each}}
 </div>
