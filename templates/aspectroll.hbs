@@ -1,4 +1,6 @@
 <div class="aspectmod aspectdie">
+    <hr>
+     <u><title>Dés du PJ</title></u>
     {{#each rolls}}
     <div class="inspiration flexrow">
         <div class="dice-rolls">
@@ -7,6 +9,22 @@
         </div>
     </div>
     {{/each}}
+
+    {{#each MessageResonnance}}
+    <div>{{this}}</div>
+    {{/each}}
+    <hr>
+    <u><title>Dés additionnels</title></u>
+    {{#each rollstuff}}
+    <div class="inspiration flexrow">
+        <div class="dice-rolls">
+            <div class="roll {{this.css}}">{{{this.img}}} 
+                <div>{{this.tooltip}}</div></div>
+        </div>
+    </div>
+    {{/each}}
+    <hr>
+    <u><title>Résultat :</title></u>
     {{#each myMessage}}
     <div>{{this}}</div>
     {{/each}}

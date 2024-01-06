@@ -4,7 +4,7 @@ Comes with 'Dice So Nice!' support.
 Usage: 
 ```
 /r 1db 1de 
-game.aspectmod.macros.RollAspects("3db +1de")
+game.aspectmod.macros.RollAspects("1db+1de+1dk+1dr" ) ou game.aspectmod.macros.RollAspects("1db+1de+1dk+1dr", "3db" )
 game.aspectmod.macros.RollAspects2()
 ```
 

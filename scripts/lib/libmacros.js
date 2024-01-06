@@ -1,15 +1,17 @@
 
 export class AspectMacros
 {
-    async RollAspects(myDice) {
+    async RollAspects(PJDice, StuffDice) {
         //dans la barre de raccourcis macro, script : game.aspectmod.macros.RollAspects()
         const api = game.aspectmod.api;
 
         let rollString = [];
-        if(!isNaN(myDice) || myDice !== 0) {                                                    
-            rollString.push(myDice);
-        }
+        let rollStringStuff = [];
 
+
+        if(PJDice != null && PJDice !== 0) {                                                    
+            rollString.push(PJDice);
+        }
         console.log("RollString "+ rollString.join('+'));
         let rolls = await new Roll(rollString.join('+')).evaluate({async:true});
 
@@ -17,11 +19,38 @@ export class AspectMacros
             rolls: this.assembleInspirationResults(rolls),
         }
 
-        let rollData = {
-            formula: rolls.formula,
-            rolls: this.assembleInspirationResults(rolls),
-            myMessage: this.sommeAspects(DataSomme)
+        let rollData = {}
+
+        if(StuffDice != undefined && StuffDice !== 0) {                                                    
+            rollStringStuff.push(StuffDice);
+
+            console.log("RollStringstuff "+ rollStringStuff.join('+'));
+            let rollstuff = await new Roll(rollStringStuff.join('+')).evaluate({async:true});
+    
+            let DataSommeStuff = {
+                rolls: this.assembleInspirationResults(rollstuff),
+            }
+
+            rollData = {
+                formula: rolls.formula,
+                rolls: this.assembleInspirationResults(rolls),
+                rollstuff : this.assembleInspirationResults(rollstuff),
+                myMessage: this.sommeAspects(DataSomme, DataSommeStuff),
+                MessageResonnance: this.isResonnance(DataSomme)
+            }
+    
+        }else{
+            rollData = {
+                formula: rolls.formula,
+                rolls: this.assembleInspirationResults(rolls),
+                myMessage: this.sommeAspects(DataSomme),
+                MessageResonnance: this.isResonnance(DataSomme)
+            }
         }
+        
+
+
+
 
         const template = await renderTemplate(`${game.aspectmod.config.templatePath}/aspectroll.hbs`, rollData);
 
@@ -84,6 +113,8 @@ export class AspectMacros
                 Ok :{ label : api.localize('OK'), callback : async (html) => {             
                                                 let basedice = parseInt(html.find("input[name='Base'")[0].value);
                                                 let e1dice = parseInt(html.find("input[name='E1'")[0].value);
+                                                //AJOUTER LES AUTRES DES ICI
+
                                                 let myRoll = "";
 
                                                 if(!isNaN(basedice) || basedice !== 0) {                                                    
@@ -118,27 +149,76 @@ export class AspectMacros
         return assembledResults;
     }
 
-    sommeAspects(roll) {
+    sommeAspects(roll, rollstuff) {
         let Obacle = 0
         let Forme_Animale = 0
         let Element = 0
         var Result =[]
 
         for(const dice of roll.rolls) {
+            var count = (dice.tooltip.match(/O/g) || []).length;
+            Obacle +=count
+            var count = (dice.tooltip.match(/A/g) || []).length;
+            Forme_Animale +=count
+            var count = (dice.tooltip.match(/E/g) || []).length;
+            Element +=count
+            console.log("tooltip "+ dice.tooltip)
+            // console.log(Obacle)
+        }
+        if (rollstuff != undefined) {
+            for(const dice of rollstuff.rolls) {
                 var count = (dice.tooltip.match(/O/g) || []).length;
                 Obacle +=count
                 var count = (dice.tooltip.match(/A/g) || []).length;
                 Forme_Animale +=count
                 var count = (dice.tooltip.match(/E/g) || []).length;
                 Element +=count
-                console.log("tooltip "+ dice.tooltip)
+                console.log("tooltipstuff "+ dice.tooltip)
                 // console.log(Obacle)
+            }
         }
 
         Result.push("Obacle : " + Obacle.toString())
         Result.push("Forme Animale : " + Forme_Animale.toString())
         Result.push("Element : " + Element.toString() )
         console.log(Result)
+
+        return Result;
+    }
+
+    isResonnance(roll) {
+        let Obacle = "O"
+        let Forme_Animale = "A"
+        let Element = "E"
+        var Result =[]
+
+        for(const dice of roll.rolls) {
+                if ( (dice.tooltip.match(/O/g) || []).length ==0){
+                    Obacle = ""
+                }
+                if ( (dice.tooltip.match(/A/g) || []).length ==0){
+                    Forme_Animale = ""
+                }
+                if ( (dice.tooltip.match(/E/g) || []).length ==0){
+                    Element = ""
+                }
+                console.log("resonnance "+ Obacle + Forme_Animale+Element)
+                // console.log(Obacle)
+        }
+        console.log("fin test resonnance "+ Obacle + Forme_Animale+Element)
+
+        if (Obacle == "O"){
+            Result.push("Il y a résonnance avec l'Obacle !! ")
+            console.log("Il y a résonnance avec l'Obacle !!")
+        }
+        if (Forme_Animale == "A"){
+            Result.push("Il y a résonnance avec la Forme Animale  !! ")
+            console.log("Il y a résonnance avec la Forme Animale  !!")
+        }
+        if (Element == "E"){
+            Result.push("Il y a résonnance avec l'Élément !! ")
+            console.log("Il y a résonnance avec l'Élément !! ")
+        }
 
         return Result;
     }

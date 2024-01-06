@@ -29,6 +29,32 @@
     "ASPECTMOD.daspect_tooltip_e9": "A",
     "ASPECTMOD.daspect_tooltip_e10": "OO",
     "ASPECTMOD.daspect_tooltip_e11": "AA",
-    "ASPECTMOD.daspect_tooltip_e12": "null"
+    "ASPECTMOD.daspect_tooltip_e12": "null",
+
+    "ASPECTMOD.daspect_tooltip_r1": "OEA",
+    "ASPECTMOD.daspect_tooltip_r2": "EEE",
+    "ASPECTMOD.daspect_tooltip_r3": "EE",
+    "ASPECTMOD.daspect_tooltip_r4": "EE",
+    "ASPECTMOD.daspect_tooltip_r5": "EE",
+    "ASPECTMOD.daspect_tooltip_r6": "EO",
+    "ASPECTMOD.daspect_tooltip_r7": "EA",
+    "ASPECTMOD.daspect_tooltip_r8": "OA",
+    "ASPECTMOD.daspect_tooltip_r9": "A",
+    "ASPECTMOD.daspect_tooltip_r10": "O",
+    "ASPECTMOD.daspect_tooltip_r11": "null",
+    "ASPECTMOD.daspect_tooltip_r12": "null",
+
+    "ASPECTMOD.daspect_tooltip_k1": "OEA",
+    "ASPECTMOD.daspect_tooltip_k2": "OEA",
+    "ASPECTMOD.daspect_tooltip_k3": "OO",
+    "ASPECTMOD.daspect_tooltip_k4": "EE",
+    "ASPECTMOD.daspect_tooltip_k5": "EO",
+    "ASPECTMOD.daspect_tooltip_k6": "E",
+    "ASPECTMOD.daspect_tooltip_k7": "O",
+    "ASPECTMOD.daspect_tooltip_k8": "E",
+    "ASPECTMOD.daspect_tooltip_k9": "O",
+    "ASPECTMOD.daspect_tooltip_k10": "A",
+    "ASPECTMOD.daspect_tooltip_k11": "AA",
+    "ASPECTMOD.daspect_tooltip_k12": "null"
 
 }
