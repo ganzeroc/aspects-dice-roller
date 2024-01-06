@@ -44,7 +44,7 @@ export class AspectDie extends Die {
 
     /** @override */
     getResultLabel(result) {      
-        return `<img src="${game.aspectmod.config.assetPath}/dice/FACES_${this.denomination}${result.result}.png" data-tooltip="${result.tooltip}"/>`;
+        return `<img src="${game.aspectmod.config.assetPath}/dice/FACES_${this.denomination}${result.result}.webp" data-tooltip="${result.tooltip}"/>`;
     }
 
 }
@@ -74,26 +74,26 @@ export class BaseDie extends AspectDie {
         return {
             type:`d${BaseDie.DENOMINATION}`,
             labels:[
-                `${game.aspectmod.config.assetPath}/dice/FACES_${BaseDie.DENOMINATION}1.png`, 
-                `${game.aspectmod.config.assetPath}/dice/FACES_${BaseDie.DENOMINATION}2.png`, 
-                `${game.aspectmod.config.assetPath}/dice/FACES_${BaseDie.DENOMINATION}3.png`, 
-                `${game.aspectmod.config.assetPath}/dice/FACES_${BaseDie.DENOMINATION}4.png`, 
-                `${game.aspectmod.config.assetPath}/dice/FACES_${BaseDie.DENOMINATION}5.png`, 
-                `${game.aspectmod.config.assetPath}/dice/FACES_${BaseDie.DENOMINATION}6.png`, 
-                `${game.aspectmod.config.assetPath}/dice/FACES_${BaseDie.DENOMINATION}7.png`, 
-                `${game.aspectmod.config.assetPath}/dice/FACES_${BaseDie.DENOMINATION}8.png`, 
-                `${game.aspectmod.config.assetPath}/dice/FACES_${BaseDie.DENOMINATION}9.png`, 
-                `${game.aspectmod.config.assetPath}/dice/FACES_${BaseDie.DENOMINATION}10.png`, 
-                `${game.aspectmod.config.assetPath}/dice/FACES_${BaseDie.DENOMINATION}11.png`, 
-                `${game.aspectmod.config.assetPath}/dice/FACES_${BaseDie.DENOMINATION}12.png`
+                `${game.aspectmod.config.assetPath}/dice/FACES_${BaseDie.DENOMINATION}1.webp`, 
+                `${game.aspectmod.config.assetPath}/dice/FACES_${BaseDie.DENOMINATION}2.webp`, 
+                `${game.aspectmod.config.assetPath}/dice/FACES_${BaseDie.DENOMINATION}3.webp`, 
+                `${game.aspectmod.config.assetPath}/dice/FACES_${BaseDie.DENOMINATION}4.webp`, 
+                `${game.aspectmod.config.assetPath}/dice/FACES_${BaseDie.DENOMINATION}5.webp`, 
+                `${game.aspectmod.config.assetPath}/dice/FACES_${BaseDie.DENOMINATION}6.webp`, 
+                `${game.aspectmod.config.assetPath}/dice/FACES_${BaseDie.DENOMINATION}7.webp`, 
+                `${game.aspectmod.config.assetPath}/dice/FACES_${BaseDie.DENOMINATION}8.webp`, 
+                `${game.aspectmod.config.assetPath}/dice/FACES_${BaseDie.DENOMINATION}9.webp`, 
+                `${game.aspectmod.config.assetPath}/dice/FACES_${BaseDie.DENOMINATION}10.webp`, 
+                `${game.aspectmod.config.assetPath}/dice/FACES_${BaseDie.DENOMINATION}11.webp`, 
+                `${game.aspectmod.config.assetPath}/dice/FACES_${BaseDie.DENOMINATION}12.webp`
             ],
             // bumpMaps:[
-            //     `${game.bithirmod.config.assetPath}/inspirationdice/i${E1Die.DENOMINATION}d1b.png`, 
-            //     `${game.bithirmod.config.assetPath}/inspirationdice/i${E1Die.DENOMINATION}d2b.png`, 
-            //     `${game.bithirmod.config.assetPath}/inspirationdice/i${E1Die.DENOMINATION}d3b.png`, 
-            //     `${game.bithirmod.config.assetPath}/inspirationdice/i${E1Die.DENOMINATION}d4b.png`, 
-            //     `${game.bithirmod.config.assetPath}/inspirationdice/i${E1Die.DENOMINATION}d5b.png`, 
-            //     `${game.bithirmod.config.assetPath}/inspirationdice/i${E1Die.DENOMINATION}d6b.png`
+            //     `${game.bithirmod.config.assetPath}/inspirationdice/i${E1Die.DENOMINATION}d1b.webp`, 
+            //     `${game.bithirmod.config.assetPath}/inspirationdice/i${E1Die.DENOMINATION}d2b.webp`, 
+            //     `${game.bithirmod.config.assetPath}/inspirationdice/i${E1Die.DENOMINATION}d3b.webp`, 
+            //     `${game.bithirmod.config.assetPath}/inspirationdice/i${E1Die.DENOMINATION}d4b.webp`, 
+            //     `${game.bithirmod.config.assetPath}/inspirationdice/i${E1Die.DENOMINATION}d5b.webp`, 
+            //     `${game.bithirmod.config.assetPath}/inspirationdice/i${E1Die.DENOMINATION}d6b.webp`
             // ],
             colorset:"BaseDice",
             system:"Aspect"
@@ -129,26 +129,26 @@ export class E1Die extends AspectDie {
         return {
             type:`d${E1Die.DENOMINATION}`,
             labels:[
-                `${game.aspectmod.config.assetPath}/dice/FACES_${E1Die.DENOMINATION}1.png`, 
-                `${game.aspectmod.config.assetPath}/dice/FACES_${E1Die.DENOMINATION}2.png`, 
-                `${game.aspectmod.config.assetPath}/dice/FACES_${E1Die.DENOMINATION}3.png`, 
-                `${game.aspectmod.config.assetPath}/dice/FACES_${E1Die.DENOMINATION}4.png`, 
-                `${game.aspectmod.config.assetPath}/dice/FACES_${E1Die.DENOMINATION}5.png`, 
-                `${game.aspectmod.config.assetPath}/dice/FACES_${E1Die.DENOMINATION}6.png`, 
-                `${game.aspectmod.config.assetPath}/dice/FACES_${E1Die.DENOMINATION}7.png`, 
-                `${game.aspectmod.config.assetPath}/dice/FACES_${E1Die.DENOMINATION}8.png`, 
-                `${game.aspectmod.config.assetPath}/dice/FACES_${E1Die.DENOMINATION}9.png`, 
-                `${game.aspectmod.config.assetPath}/dice/FACES_${E1Die.DENOMINATION}10.png`, 
-                `${game.aspectmod.config.assetPath}/dice/FACES_${E1Die.DENOMINATION}11.png`, 
-                `${game.aspectmod.config.assetPath}/dice/FACES_${E1Die.DENOMINATION}12.png`
+                `${game.aspectmod.config.assetPath}/dice/FACES_${E1Die.DENOMINATION}1.webp`, 
+                `${game.aspectmod.config.assetPath}/dice/FACES_${E1Die.DENOMINATION}2.webp`, 
+                `${game.aspectmod.config.assetPath}/dice/FACES_${E1Die.DENOMINATION}3.webp`, 
+                `${game.aspectmod.config.assetPath}/dice/FACES_${E1Die.DENOMINATION}4.webp`, 
+                `${game.aspectmod.config.assetPath}/dice/FACES_${E1Die.DENOMINATION}5.webp`, 
+                `${game.aspectmod.config.assetPath}/dice/FACES_${E1Die.DENOMINATION}6.webp`, 
+                `${game.aspectmod.config.assetPath}/dice/FACES_${E1Die.DENOMINATION}7.webp`, 
+                `${game.aspectmod.config.assetPath}/dice/FACES_${E1Die.DENOMINATION}8.webp`, 
+                `${game.aspectmod.config.assetPath}/dice/FACES_${E1Die.DENOMINATION}9.webp`, 
+                `${game.aspectmod.config.assetPath}/dice/FACES_${E1Die.DENOMINATION}10.webp`, 
+                `${game.aspectmod.config.assetPath}/dice/FACES_${E1Die.DENOMINATION}11.webp`, 
+                `${game.aspectmod.config.assetPath}/dice/FACES_${E1Die.DENOMINATION}12.webp`
             ],
             // bumpMaps:[
-            //     `${game.bithirmod.config.assetPath}/inspirationdice/i${E1Die.DENOMINATION}d1b.png`, 
-            //     `${game.bithirmod.config.assetPath}/inspirationdice/i${E1Die.DENOMINATION}d2b.png`, 
-            //     `${game.bithirmod.config.assetPath}/inspirationdice/i${E1Die.DENOMINATION}d3b.png`, 
-            //     `${game.bithirmod.config.assetPath}/inspirationdice/i${E1Die.DENOMINATION}d4b.png`, 
-            //     `${game.bithirmod.config.assetPath}/inspirationdice/i${E1Die.DENOMINATION}d5b.png`, 
-            //     `${game.bithirmod.config.assetPath}/inspirationdice/i${E1Die.DENOMINATION}d6b.png`
+            //     `${game.bithirmod.config.assetPath}/inspirationdice/i${E1Die.DENOMINATION}d1b.webp`, 
+            //     `${game.bithirmod.config.assetPath}/inspirationdice/i${E1Die.DENOMINATION}d2b.webp`, 
+            //     `${game.bithirmod.config.assetPath}/inspirationdice/i${E1Die.DENOMINATION}d3b.webp`, 
+            //     `${game.bithirmod.config.assetPath}/inspirationdice/i${E1Die.DENOMINATION}d4b.webp`, 
+            //     `${game.bithirmod.config.assetPath}/inspirationdice/i${E1Die.DENOMINATION}d5b.webp`, 
+            //     `${game.bithirmod.config.assetPath}/inspirationdice/i${E1Die.DENOMINATION}d6b.webp`
             // ],
             colorset:"E1Dice",
             system:"Aspect"
