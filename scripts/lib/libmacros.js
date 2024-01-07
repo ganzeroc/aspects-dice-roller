@@ -1,8 +1,8 @@
 
 export class AspectMacros
 {
-    async RollAspects(PJDice, StuffDice) {
-        //dans la barre de raccourcis macro, script : game.aspectmod.macros.RollAspects()
+    async RollAspects(PJDice, StuffDice, NivO, NivA, NivE) {
+        //dans la barre de raccourcis macro, script : game.aspectmod.macros.RollAspects(1db,1de,1dk,1dr)
         const api = game.aspectmod.api;
 
         let rollString = [];
@@ -12,7 +12,7 @@ export class AspectMacros
         if(PJDice != null && PJDice !== 0) {                                                    
             rollString.push(PJDice);
         }
-        console.log("RollString "+ rollString.join('+'));
+        
         let rolls = await new Roll(rollString.join('+')).evaluate({async:true});
 
         let DataSomme = {
@@ -24,7 +24,6 @@ export class AspectMacros
         if(StuffDice != undefined && StuffDice !== 0) {                                                    
             rollStringStuff.push(StuffDice);
 
-            console.log("RollStringstuff "+ rollStringStuff.join('+'));
             let rollstuff = await new Roll(rollStringStuff.join('+')).evaluate({async:true});
     
             let DataSommeStuff = {
@@ -35,23 +34,19 @@ export class AspectMacros
                 formula: rolls.formula,
                 rolls: this.assembleInspirationResults(rolls),
                 rollstuff : this.assembleInspirationResults(rollstuff),
-                myMessage: this.sommeAspects(DataSomme, DataSommeStuff),
-                MessageResonnance: this.isResonnance(DataSomme)
+                myMessage: this.sommeAspects(DataSomme, DataSommeStuff, NivO, NivA, NivE),
+                MessageResonnance: this.isResonnance(DataSomme, NivO, NivA, NivE)
             }
     
         }else{
             rollData = {
                 formula: rolls.formula,
                 rolls: this.assembleInspirationResults(rolls),
-                myMessage: this.sommeAspects(DataSomme),
-                MessageResonnance: this.isResonnance(DataSomme)
+                myMessage: this.sommeAspects(DataSomme,"0", NivO, NivA, NivE),
+                MessageResonnance: this.isResonnance(DataSomme, NivO, NivA, NivE)
             }
         }
         
-
-
-
-
         const template = await renderTemplate(`${game.aspectmod.config.templatePath}/aspectroll.hbs`, rollData);
 
         let chatData = {
@@ -87,54 +82,53 @@ export class AspectMacros
             }
         }
         ChatMessage.create(chatData);
-        // ChatMessage.create(chatData2);
 
     }
 
-    async RollAspects2() {
-        //dans la barre de raccourcis macro, script : game.aspectmod.macros.RollAspects()
+    // async RollAspects2() {
+    //     //dans la barre de raccourcis macro, script : game.aspectmod.macros.RollAspects()
 
-        const api = game.aspectmod.api;
-        let dialog_content = `  
-        <div class="form-group aspectmod">
-        <div class="dialogHeader">
-                    <div class="dialogEntry"><label for="base" class="dialogEntry">dés base</label></div><div><input type="text" name="Base" value="3" class="inspirationInput"></div>
-        </div>
-        <div class="dialogHeader">
-                    <div class="dialogEntry"><label for="E1" class="dialogEntry">dés E1</label></div><div><input type="text" name="E1" value="3" class="inspirationInput"></div>
-        </div>
-        <br/>
-        </div>`;
-        let x = new Dialog({
-            title: api.localize('DBase_title'),
-            content : dialog_content,
-            buttons : 
-            {
-                Ok :{ label : api.localize('OK'), callback : async (html) => {             
-                                                let basedice = parseInt(html.find("input[name='Base'")[0].value);
-                                                let e1dice = parseInt(html.find("input[name='E1'")[0].value);
-                                                //AJOUTER LES AUTRES DES ICI
+    //     const api = game.aspectmod.api;
+    //     let dialog_content = `  
+    //     <div class="form-group aspectmod">
+    //     <div class="dialogHeader">
+    //                 <div class="dialogEntry"><label for="base" class="dialogEntry">dés base</label></div><div><input type="text" name="Base" value="3" class="inspirationInput"></div>
+    //     </div>
+    //     <div class="dialogHeader">
+    //                 <div class="dialogEntry"><label for="E1" class="dialogEntry">dés E1</label></div><div><input type="text" name="E1" value="3" class="inspirationInput"></div>
+    //     </div>
+    //     <br/>
+    //     </div>`;
+    //     let x = new Dialog({
+    //         title: api.localize('DBase_title'),
+    //         content : dialog_content,
+    //         buttons : 
+    //         {
+    //             Ok :{ label : api.localize('OK'), callback : async (html) => {             
+    //                                             let basedice = parseInt(html.find("input[name='Base'")[0].value);
+    //                                             let e1dice = parseInt(html.find("input[name='E1'")[0].value);
+    //                                             //AJOUTER LES AUTRES DES ICI
 
-                                                let myRoll = "";
+    //                                             let myRoll = "";
 
-                                                if(!isNaN(basedice) || basedice !== 0) {                                                    
-                                                    myRoll += "+" + basedice +"db";
-                                                }
-                                                if(!isNaN(e1dice) || e1dice !== 0) {                                                    
-                                                    myRoll += "+" + e1dice +"de";
-                                                }
+    //                                             if(!isNaN(basedice) || basedice !== 0) {                                                    
+    //                                                 myRoll += "+" + basedice +"db";
+    //                                             }
+    //                                             if(!isNaN(e1dice) || e1dice !== 0) {                                                    
+    //                                                 myRoll += "+" + e1dice +"de";
+    //                                             }
                                                 
-                                                await this.RollAspects(myRoll);
-                                            }
-                },
-                Cancel : {label : api.localize('CANCEL')}
-            }  
-        });
-        x.options.width = 200;
-        x.position.width = 300;
+    //                                             await this.RollAspects(myRoll);
+    //                                         }
+    //             },
+    //             Cancel : {label : api.localize('CANCEL')}
+    //         }  
+    //     });
+    //     x.options.width = 200;
+    //     x.position.width = 300;
         
-        x.render(true);
-    }
+    //     x.render(true);
+    // }
 
 
     assembleInspirationResults(rolls) {
@@ -149,11 +143,14 @@ export class AspectMacros
         return assembledResults;
     }
 
-    sommeAspects(roll, rollstuff) {
+    sommeAspects(roll, rollstuff, myNivO, myNivA, myNivE) {
         let Obacle = 0
         let Forme_Animale = 0
         let Element = 0
+        let score = 0
+        let difficulte = 0
         var Result =[]
+        let typeTest = ""
 
         for(const dice of roll.rolls) {
             var count = (dice.tooltip.match(/O/g) || []).length;
@@ -162,8 +159,6 @@ export class AspectMacros
             Forme_Animale +=count
             var count = (dice.tooltip.match(/E/g) || []).length;
             Element +=count
-            console.log("tooltip "+ dice.tooltip)
-            // console.log(Obacle)
         }
         if (rollstuff != undefined) {
             for(const dice of rollstuff.rolls) {
@@ -173,51 +168,93 @@ export class AspectMacros
                 Forme_Animale +=count
                 var count = (dice.tooltip.match(/E/g) || []).length;
                 Element +=count
-                console.log("tooltipstuff "+ dice.tooltip)
-                // console.log(Obacle)
             }
         }
 
+        if (myNivO != undefined & myNivO !=0){
+            score+= Obacle;
+            difficulte += myNivO
+            typeTest += "Obacle "
+        }
+        if (myNivA != undefined & myNivA !=0){
+            score+= Forme_Animale;
+            difficulte += myNivA
+            typeTest += "Forme Animale"
+        }
+        if (myNivE != undefined & myNivE !=0){
+            score+= Element;
+            difficulte += myNivE
+            typeTest +="Element"
+        }
+        console.log(score - difficulte)
         Result.push("Obacle : " + Obacle.toString())
         Result.push("Forme Animale : " + Forme_Animale.toString())
         Result.push("Element : " + Element.toString() )
-        console.log(Result)
+
+        if (difficulte !=0){
+            Result.push ("Test : " + typeTest)
+            if (score>=difficulte){
+                Result.push("C'est un succès ! Ecart au test : "+(score - difficulte).toString())
+            }else{
+                Result.push("C'est un échec ! Ecart au test : "+(score - difficulte).toString())
+            }
+        }
 
         return Result;
     }
 
-    isResonnance(roll) {
-        let Obacle = "O"
-        let Forme_Animale = "A"
-        let Element = "E"
+    isResonnance(roll, myNivO, myNivA, myNivE) {
         var Result =[]
+        let NbrResonnance = 3
+
+        console.log("lenght" + roll.rolls.length + roll.length<NbrResonnance)
+        if (roll.length<NbrResonnance){
+            NbrResonnance=roll.length
+        }    
+
+        let Obacle = 0
+        let Forme_Animale = 0
+        let Element = 0
 
         for(const dice of roll.rolls) {
-                if ( (dice.tooltip.match(/O/g) || []).length ==0){
-                    Obacle = ""
+                if ( myNivO!=undefined & myNivO>0 & (dice.tooltip.match(/O/g) || []).length > 0){
+                    Obacle+=1
                 }
-                if ( (dice.tooltip.match(/A/g) || []).length ==0){
-                    Forme_Animale = ""
+                else if ((dice.tooltip.match(/O/g) || []).length > 0){
+                    Obacle +=1
                 }
-                if ( (dice.tooltip.match(/E/g) || []).length ==0){
-                    Element = ""
+                if ( myNivA!=undefined & myNivA>0 &(dice.tooltip.match(/A/g) || []).length >0){
+                    Forme_Animale+=1
+                } else if ((dice.tooltip.match(/A/g) || []).length > 0){
+                    Forme_Animale +=1
                 }
-                console.log("resonnance "+ Obacle + Forme_Animale+Element)
-                // console.log(Obacle)
+                if ( myNivE!=undefined & myNivE>0 &(dice.tooltip.match(/E/g) || []).length >0){
+                    Element+=1
+                }  else if ((dice.tooltip.match(/E/g) || []).length > 0){
+                    Element +=1
+                }
         }
-        console.log("fin test resonnance "+ Obacle + Forme_Animale+Element)
 
-        if (Obacle == "O"){
-            Result.push("Il y a résonnance avec l'Obacle !! ")
-            console.log("Il y a résonnance avec l'Obacle !!")
-        }
-        if (Forme_Animale == "A"){
-            Result.push("Il y a résonnance avec la Forme Animale  !! ")
-            console.log("Il y a résonnance avec la Forme Animale  !!")
-        }
-        if (Element == "E"){
-            Result.push("Il y a résonnance avec l'Élément !! ")
-            console.log("Il y a résonnance avec l'Élément !! ")
+        if (myNivO == undefined & myNivE == undefined & myNivA == undefined){
+            if (Obacle >= NbrResonnance){
+                Result.push("Il y a résonnance avec l'Obacle !! ")
+            }
+            if (Forme_Animale >= NbrResonnance){
+                Result.push("Il y a résonnance avec la Forme Animale  !! ")
+            }
+            if (Element >= NbrResonnance){
+                Result.push("Il y a résonnance avec l'Élément !! ")
+            }
+        }else{
+            if (Obacle >= NbrResonnance & myNivO != undefined & myNivO >0){
+                Result.push("Il y a résonnance avec l'Obacle !! ")
+            }
+            if (Forme_Animale >= NbrResonnance & myNivA != undefined & myNivA >0){
+                Result.push("Il y a résonnance avec la Forme Animale  !! ")
+            }
+            if (Element >= NbrResonnance & myNivE != undefined & myNivE >0){
+                Result.push("Il y a résonnance avec l'Élément !! ")
+            }
         }
 
         return Result;
