@@ -8,6 +8,7 @@ game.aspectmod.macros.RollAspects("1db+1de+1dk+1dr" ) ou game.aspectmod.macros.R
 ou encore game.aspectmod.macros.RollAspects("1db+1de+1dk+1dr","1db",5)
 ou encore game.aspectmod.macros.RollAspects("1db+1de+1dk+1dr","0",5)
 ou encore game.aspectmod.macros.RollAspects("1db+1de+1dk+1dr","3db",5,0,1)
+```
 
 concernant les paramètres :
 1) prompt du roll principal (PJ), entre guillement. Sans ce prompte rien ne fonctionne. (prompt de type "1de + 3db")
@@ -28,7 +29,6 @@ La macro fait la somme des symboles constatés sur les faces.
 En cas de présence d'un (de) niveau(x) de difficulté, la macro précise si le test est réussi ou perdu. On précise également la marge de réussite du test par rapport au niveau de difficulté demandé.
 en cas de test sur plusieurs aspects, la macro effectue la somme sur les différents aspects présent dans le test, et les compare au niveau à la somme des niveaux de difficulté. On précise également la marge de réussite du test (sans différencier quelle amrge sur quelle partie du test)
 
-```
 
 # Credits
 
