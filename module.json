@@ -33,7 +33,7 @@
 		  "module": "aspects-mods"
 		}
 	  ],
-	"url": "#{URL}#",
-	"manifest": "#{MANIFEST}#",
-	"download": "#{DOWNLOAD}#"
+	  "url": "#{URL}#",
+	  "manifest": "#{MANIFEST}#",
+	  "download": "#{DOWNLOAD}#"
 }
