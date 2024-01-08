@@ -147,10 +147,7 @@ export class AspectMacros
         let Obacle = 0
         let Forme_Animale = 0
         let Element = 0
-        let score = 0
-        let difficulte = 0
         var Result =[]
-        let typeTest = ""
 
         for(const dice of roll.rolls) {
             var count = (dice.tooltip.match(/O/g) || []).length;
@@ -172,33 +169,30 @@ export class AspectMacros
         }
 
         if (myNivO != undefined & myNivO !=0){
-            score+= Obacle;
-            difficulte += myNivO
-            typeTest += "Obacle "
+            if (Obacle>=myNivO){
+                Result.push("Test Obacle : C'est un succès ! Ecart test : +"+(Obacle - myNivO).toString())
+            }else{
+                Result.push("Test Obacle : C'est un échec ! Ecart test : "+(Obacle - myNivO).toString())
+            }
         }
         if (myNivA != undefined & myNivA !=0){
-            score+= Forme_Animale;
-            difficulte += myNivA
-            typeTest += "Forme Animale"
+            if (Forme_Animale>=myNivA){
+                Result.push("Test Forme Animale : C'est un succès ! Ecart test : +"+(Forme_Animale - myNivA).toString())
+            }else{
+                Result.push("Test Forme Animale : C'est un échec ! Ecart test : "+(Forme_Animale - myNivA).toString())
+            }
         }
         if (myNivE != undefined & myNivE !=0){
-            score+= Element;
-            difficulte += myNivE
-            typeTest +="Element"
+            if (Element>=myNivE){
+                Result.push("Test Élément : C'est un succès ! Ecart test : +"+(Element - myNivE).toString())
+            }else{
+                Result.push("Test Élément : C'est un échec ! Ecart test : "+(Element - myNivE).toString())
+            }
         }
-        console.log(score - difficulte)
         Result.push("Obacle : " + Obacle.toString())
         Result.push("Forme Animale : " + Forme_Animale.toString())
         Result.push("Element : " + Element.toString() )
 
-        if (difficulte !=0){
-            Result.push ("Test : " + typeTest)
-            if (score>=difficulte){
-                Result.push("C'est un succès ! Ecart au test : "+(score - difficulte).toString())
-            }else{
-                Result.push("C'est un échec ! Ecart au test : "+(score - difficulte).toString())
-            }
-        }
 
         return Result;
     }

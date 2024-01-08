@@ -2,7 +2,8 @@
 	"name": "aspects-dice-roller",
 	"title": "Aspects' Dice Roller",
 	"description": "Adds the ability to roll Aspects dice",
-	"version": "1.0.4",
+	"version":  "#{VERSION}#",
+	"manifestPlusVersion": "1.0.0",  
 	"minimumCoreVersion" : 11,
 	"compatibleCoreVersion" : 11,
 	"compatibility": {

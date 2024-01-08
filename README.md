@@ -27,7 +27,7 @@ dans l'absence de niveaux de difficulté (argument non renseigné ou tout à 0) 
 
 La macro fait la somme des symboles constatés sur les faces.
 En cas de présence d'un (de) niveau(x) de difficulté, la macro précise si le test est réussi ou perdu. On précise également la marge de réussite du test par rapport au niveau de difficulté demandé.
-en cas de test sur plusieurs aspects, la macro effectue la somme sur les différents aspects présent dans le test, et les compare au niveau à la somme des niveaux de difficulté. On précise également la marge de réussite du test (sans différencier quelle amrge sur quelle partie du test)
+en cas de test sur plusieurs aspects, la macro effectue la vérification idépendamment sur chaque aspects présent dans le test. On précise également la marge de réussite du test (sans différencier quelle amrge sur quelle partie du test)
 
 
 # Credits
