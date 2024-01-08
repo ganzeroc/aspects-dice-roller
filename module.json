@@ -32,8 +32,12 @@
 		  "type": "Adventure",
 		  "module": "aspects-mods"
 		}
+<<<<<<< HEAD
 	  ],
 	  "url": "#{URL}#",
 	  "manifest": "#{MANIFEST}#",
 	  "download": "#{DOWNLOAD}#"
+=======
+	  ]
+>>>>>>> 01f0f5c335234c536eef802df28af19c78409059
 }
