@@ -80,14 +80,20 @@ export async function ModuleImport() {
 
 Hooks.once('diceSoNiceReady', (dice3d) => {
     dice3d.addColorset(BaseDie.diceSoNiceColorset);
-    dice3d.addDicePreset(BaseDie.diceSoNiceDicePreset);
-    dice3d.addColorset(EDie.diceSoNiceColorset);
-    dice3d.addDicePreset(EDie.diceSoNiceDicePreset);
-    dice3d.addColorset(RDie.diceSoNiceColorset);
-    dice3d.addDicePreset(RDie.diceSoNiceColorset);
-    dice3d.addColorset(KDie.diceSoNiceColorset);
-    dice3d.addDicePreset(KDie.diceSoNiceColorset);
+    dice3d.addDicePreset(BaseDie.diceSoNiceDicePreset);    
 });
 
+Hooks.once('diceSoNiceReady', (dice3d) => {
+    dice3d.addColorset(EDie.diceSoNiceColorset);
+    dice3d.addDicePreset(EDie.diceSoNiceDicePreset);
+});
 
+Hooks.once('diceSoNiceReady', (dice3d) => {
+    dice3d.addColorset(RDie.diceSoNiceColorset);
+    dice3d.addDicePreset(RDie.diceSoNiceDicePreset);
+});
 
+Hooks.once('diceSoNiceReady', (dice3d) => {
+    dice3d.addColorset(KDie.diceSoNiceColorset);
+    dice3d.addDicePreset(KDie.diceSoNiceDicePreset);
+});

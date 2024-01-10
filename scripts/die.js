@@ -28,8 +28,6 @@ export class AspectDie extends Die {
 
     get denomination() { return AspectDie.DENOMINATION; }
 
-    /** @override */
-    static DENOMINATION = "b";
 
     /** @inheritdoc */
     static MODIFIERS = {
@@ -62,8 +60,8 @@ export class BaseDie extends AspectDie {
             name: 'BaseDie',
             description: 'BaseDie',
             category: 'Aspect',
-            foreground: ['#ecdfdf'],
-            background: ['#ecdfdf'],
+            foreground: ['#ffffff'],
+            background: ['#ffffff'],
             outline: 'black',
             texture: 'none',
             edge: '#ffffff',
@@ -87,8 +85,7 @@ export class BaseDie extends AspectDie {
                 `${game.aspectmod.config.assetPath}/dice/FACES_${BaseDie.DENOMINATION}11.webp`, 
                 `${game.aspectmod.config.assetPath}/dice/FACES_${BaseDie.DENOMINATION}12.webp`
             ],
-            colorset:"BaseDie",
-            system:"Aspect"
+            colorset:"BaseDie"
         }
     
     }
@@ -108,11 +105,11 @@ export class KDie extends AspectDie {
             name: 'KDie',
             description: 'KDie',
             category: 'Aspect',
-            foreground: ['#ecdfdf'],
-            background: ['#ecdfdf'],
+            foreground: ['#519e4b'],
+            background: ['#519e4b'],
             outline: 'black',
             texture: 'none',
-            edge: '#93c87b',
+            edge: '#519e4b',
         };
     }
 
@@ -133,8 +130,7 @@ export class KDie extends AspectDie {
                 `${game.aspectmod.config.assetPath}/dice/FACES_${KDie.DENOMINATION}11.webp`, 
                 `${game.aspectmod.config.assetPath}/dice/FACES_${KDie.DENOMINATION}12.webp`
             ],
-            colorset:"KDie",
-            system:"Aspect"
+            colorset:"KDie"
         }
     
     }
@@ -154,11 +150,11 @@ export class RDie extends AspectDie {
             name: 'RDie',
             description: 'RDie',
             category: 'Aspect',
-            foreground: ['#ecdfdf'],
-            background: ['#ecdfdf'],
+            foreground: ['#5b78d9'],
+            background: ['#5b78d9'],
             outline: 'black',
             texture: 'none',
-            edge: '#98B6FE',
+            edge: '#5b78d9',
         };
     }
 
@@ -179,8 +175,7 @@ export class RDie extends AspectDie {
                 `${game.aspectmod.config.assetPath}/dice/FACES_${RDie.DENOMINATION}11.webp`, 
                 `${game.aspectmod.config.assetPath}/dice/FACES_${RDie.DENOMINATION}12.webp`
             ],
-            colorset:"RDie",
-            system:"Aspect"
+            colorset:"RDie"
         }
     
     }
@@ -201,11 +196,11 @@ export class EDie extends AspectDie {
             name: 'EDie',
             description: 'EDie',
             category: 'Aspect',
-            foreground: ['#ecdfdf'],
-            background: ['#ecdfdf'],
+            foreground: ['#97b4eb'],
+            background: ['#97b4eb'],
             outline: 'black',
             texture: 'none',
-            edge: '#c0cfeb',
+            edge: '#97b4eb',
         };
     }
 
@@ -226,8 +221,7 @@ export class EDie extends AspectDie {
                 `${game.aspectmod.config.assetPath}/dice/FACES_${EDie.DENOMINATION}11.webp`, 
                 `${game.aspectmod.config.assetPath}/dice/FACES_${EDie.DENOMINATION}12.webp`
             ],
-            colorset:"EDie",
-            system:"Aspect"
+            colorset:"EDie"
         }
     
     }

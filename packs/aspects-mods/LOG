@@ -1,8 +1,0 @@
-2024/01/10-19:56:30.130 6a94 Recovering log #216
-2024/01/10-19:56:30.136 6a94 Delete type=0 #216
-2024/01/10-19:56:30.136 6a94 Delete type=3 #215
-2024/01/10-19:57:10.064 ffc Level-0 table #220: started
-2024/01/10-19:57:10.064 ffc Level-0 table #220: 0 bytes OK
-2024/01/10-19:57:10.068 ffc Delete type=0 #218
-2024/01/10-19:57:10.071 ffc Manual compaction at level-0 from '!adventures!EOLvmewkCU75UStz' @ 72057594037927935 : 1 .. '!adventures!EOLvmewkCU75UStz' @ 0 : 0; will stop at (end)
-2024/01/10-19:57:10.082 ffc Manual compaction at level-1 from '!adventures!EOLvmewkCU75UStz' @ 72057594037927935 : 1 .. '!adventures!EOLvmewkCU75UStz' @ 0 : 0; will stop at (end)
