@@ -8,7 +8,6 @@ export class AspectMacros
         let rollString = [];
         let rollStringStuff = [];
 
-
         if(PJDice != null && PJDice !== 0) {                                                    
             rollString.push(PJDice);
         }

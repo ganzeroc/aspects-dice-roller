@@ -1,17 +1,19 @@
-{
-	"name": "aspects-dice-roller",
+{	"id": "aspects-dice-roller",
 	"title": "Aspects' Dice Roller",
 	"description": "Adds the ability to roll Aspects dice",
-	"version":  "#{VERSION}#",
-	"manifestPlusVersion": "1.0.0",  
-	"minimumCoreVersion" : 11,
-	"compatibleCoreVersion" : 11,
+	"version":  "1.0.0",
 	"compatibility": {
 		"minimum": 11,
-		"verified": 11,
-		"maximum": 11
+		"verified": 11
 	  },
-	"author": "ThunderBrioche&OCG",
+	"author": [    
+	{
+		"name": "OCG",
+		"discord": "ocganzer",
+		"url": "https://github.com/ganzeroc/aspects-dice-roller",
+		"flags": {}
+	  }
+	],
 	"esmodules": [
 		"./scripts/module.js"
 	],
@@ -29,11 +31,17 @@
 		{
 		  "name": "aspects-mods",
 		  "label": "Aspect's mods",
+		  "path": "packs/aspects-mods",
 		  "type": "Adventure",
-		  "module": "aspects-mods"
+		  "module": "aspects-mods",
+		  "ownership": {
+			"PLAYER": "OBSERVER",
+			"ASSISTANT": "OWNER"
+		  },
+		  "flags": {}
 		}
 	  ],
-	"url": "#{URL}#",
+	"url": "https://github.com/ganzeroc/aspects-dice-roller",
 	"manifest": "#{MANIFEST}#",
 	"download": "#{DOWNLOAD}#"
 }
