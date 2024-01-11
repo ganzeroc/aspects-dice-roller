@@ -23,8 +23,6 @@ export class AspectMacros
         if(StuffDice != undefined && StuffDice !== 0) {                                                    
             rollStringStuff.push(StuffDice);
 
-            await wait(5000);
-
             let rollstuff = await new Roll(rollStringStuff.join('+')).evaluate({async:true});
     
             let DataSommeStuff = {
