@@ -1,3 +1,8 @@
-2024/01/11-19:15:39.587 58fc Recovering log #244
-2024/01/11-19:15:39.592 58fc Delete type=0 #244
-2024/01/11-19:15:39.593 58fc Delete type=3 #243
+2024/01/18-21:21:21.915 10b0 Recovering log #248
+2024/01/18-21:21:21.920 10b0 Delete type=0 #248
+2024/01/18-21:21:21.920 10b0 Delete type=3 #247
+2024/01/18-21:21:51.597 1974 Level-0 table #252: started
+2024/01/18-21:21:51.597 1974 Level-0 table #252: 0 bytes OK
+2024/01/18-21:21:51.599 1974 Delete type=0 #250
+2024/01/18-21:21:51.603 1974 Manual compaction at level-0 from '!adventures!EOLvmewkCU75UStz' @ 72057594037927935 : 1 .. '!adventures!EOLvmewkCU75UStz' @ 0 : 0; will stop at (end)
+2024/01/18-21:21:51.603 1974 Manual compaction at level-1 from '!adventures!EOLvmewkCU75UStz' @ 72057594037927935 : 1 .. '!adventures!EOLvmewkCU75UStz' @ 0 : 0; will stop at (end)

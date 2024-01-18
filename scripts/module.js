@@ -1,6 +1,6 @@
 import { ASPECTMODCONF } from './config.js';
 import { AspectMacros } from './lib/libmacros.js';
-import { BaseDie, EDie, KDie, RDie } from './die.js';
+import { ADie, BaseDie, EDie, KDie, ODie, PDie, RDie, SDie, UDie, ZDie } from './die.js';
 import { AspectApi } from './api.js';
 
 const moduleId = 'aspects-dice-roller';
@@ -30,6 +30,13 @@ Hooks.once('init', async function() {
     CONFIG.Dice.terms[EDie.DENOMINATION] = EDie;
     CONFIG.Dice.terms[KDie.DENOMINATION] = KDie;
     CONFIG.Dice.terms[RDie.DENOMINATION] = RDie;
+    CONFIG.Dice.terms[ODie.DENOMINATION] = ODie;
+    CONFIG.Dice.terms[PDie.DENOMINATION] = PDie;
+    CONFIG.Dice.terms[UDie.DENOMINATION] = UDie;
+    CONFIG.Dice.terms[ADie.DENOMINATION] = ADie;
+    CONFIG.Dice.terms[ZDie.DENOMINATION] = ZDie;
+    CONFIG.Dice.terms[SDie.DENOMINATION] = SDie;
+
 
     game.aspectmod = {
         config: ASPECTMODCONF,
@@ -96,4 +103,34 @@ Hooks.once('diceSoNiceReady', (dice3d) => {
 Hooks.once('diceSoNiceReady', (dice3d) => {
     dice3d.addColorset(KDie.diceSoNiceColorset);
     dice3d.addDicePreset(KDie.diceSoNiceDicePreset);
+});
+
+Hooks.once('diceSoNiceReady', (dice3d) => {
+    dice3d.addColorset(ODie.diceSoNiceColorset);
+    dice3d.addDicePreset(ODie.diceSoNiceDicePreset);
+});
+
+Hooks.once('diceSoNiceReady', (dice3d) => {
+    dice3d.addColorset(PDie.diceSoNiceColorset);
+    dice3d.addDicePreset(PDie.diceSoNiceDicePreset);
+});
+
+Hooks.once('diceSoNiceReady', (dice3d) => {
+    dice3d.addColorset(UDie.diceSoNiceColorset);
+    dice3d.addDicePreset(UDie.diceSoNiceDicePreset);
+});
+
+Hooks.once('diceSoNiceReady', (dice3d) => {
+    dice3d.addColorset(ADie.diceSoNiceColorset);
+    dice3d.addDicePreset(ADie.diceSoNiceDicePreset);
+});
+
+Hooks.once('diceSoNiceReady', (dice3d) => {
+    dice3d.addColorset(ZDie.diceSoNiceColorset);
+    dice3d.addDicePreset(ZDie.diceSoNiceDicePreset);
+});
+
+Hooks.once('diceSoNiceReady', (dice3d) => {
+    dice3d.addColorset(SDie.diceSoNiceColorset);
+    dice3d.addDicePreset(SDie.diceSoNiceDicePreset);
 });
