@@ -1,0 +1,17 @@
+<div class="aspectmod aspectdie">
+    <div>{{Difficulte}}</div>
+     <hr>
+     
+    {{#each rolls}}
+    <div class="inspiration flexrow">
+        <div class="dice-rolls">
+            <div class="roll {{this.css}}">{{{this.img}}} 
+                <div>{{this.tooltip}}</div></div>
+        </div>
+    </div>
+    {{/each}}
+
+    <hr>
+    <u><title>Résultat :</title></u>
+    <div>{{myMessage}}</div>
+</div>

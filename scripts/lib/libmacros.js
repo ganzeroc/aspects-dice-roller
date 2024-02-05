@@ -216,7 +216,19 @@ export class AspectMacros
             for(const result of dice.results) {
                 result.css = dice.getResultCSS(result).join(' ');
                 result.img = dice.getResultLabel(result);
+                
                 assembledResults.push(result);
+            }
+        }
+        return assembledResults;
+    }
+
+    resultat(rolls) {
+        let assembledResults = [];
+        for(const dice of rolls.dice) {
+            for(const result of dice.results) {
+                console.log(result.result)
+                assembledResults.push(result.result);
             }
         }
         return assembledResults;
@@ -452,6 +464,109 @@ export class AspectMacros
         }
 
         return Result;
+    }
+
+    async RollComp(PJDice, NbrAdvantage, compDices, CaracTest) {
+        //dans la barre de raccourcis macro, script : game.aspectmod.macros.RollAspects(1db,1de,1dk,1dr)
+        const api = game.aspectmod.api;
+
+        let rollString = [];
+        let DiceNumber = 0
+
+        if(PJDice != null && PJDice !== 0) {                                                    
+            rollString.push(PJDice);
+
+            for (let char of PJDice) {
+                const possibleNum = parseInt(char);
+                if (!Number.isNaN(possibleNum)) {
+                    DiceNumber+=possibleNum
+                };
+            }
+        }
+
+        if(NbrAdvantage != undefined && NbrAdvantage !== 0) {                                                    
+            rollString.push(NbrAdvantage + "dB");
+        }
+
+
+        if(compDices != undefined && compDices !== 0) {                                                    
+            rollString.push(compDices);
+
+            for (let char of compDices) {
+                const possibleNum = parseInt(char);
+                if (!Number.isNaN(possibleNum)) {
+                    DiceNumber+=possibleNum
+                };
+            }
+        }
+        
+        let rolls = await new Roll(rollString.join('+')).evaluate({async:true});
+
+        let Arrayresults = this.resultat(rolls);
+        Arrayresults.sort(function(a, b) {
+            return a - b;
+          });
+        
+        let Nombresucces = 0
+        let tempCount = 0
+
+        for(const resu of Arrayresults) {
+            if (tempCount< DiceNumber){
+                if (resu<= CaracTest){
+                    Nombresucces+=1
+                }
+                
+            }
+            tempCount+=1
+        }
+
+        let rollData = {}
+
+
+        rollData = {
+            formula: rolls.formula,
+            Difficulte : "La difficulté du test est de : "+CaracTest,
+            rolls: this.assembleResults(rolls),
+            myMessage: "Il y a "+ Nombresucces + " succès !!",
+        }
+    
+        
+        const template = await renderTemplate(`${game.aspectmod.config.templatePath}/comproll.hbs`, rollData);
+
+        let chatData = {
+            user: game.user.id,
+            speaker: ChatMessage.getSpeaker({ 
+            alias: api.localize('DBase_results')
+            }),
+            type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+            roll: JSON.stringify(rolls),
+            rollMode: game.settings.get('core', 'rollMode'),
+            content: template,
+        };
+
+        if(game.modules.get("dice-so-nice")?.active ) {
+            const dsnsettings = game.user.getFlag("dice-so-nice", "settings");
+
+            if(!dsnsettings || dsnsettings.hideAfterRoll) {
+                if(!dsnsettings) {
+                    await game.user.setFlag('dice-so-nice', 'settings', game.dice3d.constructor.CONFIG() );
+                }
+                const timeout = parseInt(game.user.getFlag("dice-so-nice", "settings").timeBeforeHide);
+                if(isNaN(timeout) ) {
+                    return;
+                }
+                // Not persisted - just change in-memory value for the time it takes to make the
+                // roll and the time it takes before dsn tries to clear the dices from the display
+                game.user.getFlag("dice-so-nice", "settings").hideAfterRoll = false;
+                setTimeout(() => { 
+                        game.user.getFlag("dice-so-nice", "settings").hideAfterRoll = true;
+                    },
+                    timeout+500
+                );
+            }
+        }
+        ChatMessage.create(chatData);
+
     }
 
 }

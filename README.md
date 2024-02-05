@@ -30,7 +30,31 @@ En cas de présence d'un (de) niveau(x) de difficulté, la macro précise si le 
 en cas de test sur plusieurs aspects, la macro effectue la vérification idépendamment sur chaque aspects présent dans le test. On précise également la marge de réussite du test (sans différencier quelle amrge sur quelle partie du test)
 
 
+Concernant les compétences :
+
+```
+Pour les compétences :
+game.aspectmod.macros.RollComp("1db+1ds+1dk+1dr",1,"1db",7)
+```
+
+1) Prompt du roll principal (PJ), entre guillement. Sans ce prompte rien ne fonctionne. (prompt de type "1de + 3db")
+2) Nombre d'avantages. si on veut se passer de cet argument =>  0
+3) prompt du roll secondaire (compétences ou talent), entre guilement (prompt de type "1d12 + 2d20" ou encore "1db + 2d20"). si on veut se passer de cet argument => "" ou 0
+4) caractéristique à tester; Param obligatoire
+
+on lance le nombre de dé équivalent aux dés présent dans le pool de PJdice + éventuellement le pool de dés secondaires (compétences). On rajoute XdB selon l'avantage demandé (X)
+Une fois les résultats obtenus, on classe les résultats, en ordre croissant, et on élimine les X plus mauvais résultats
+On compte ensuite le nombre de succès (résultats <= à la caractéristique à tester.)
 # Credits
+
+idée pour plus tard : 
+XXX Sur les compétences
+-gèrer le désavantage
+-ajouter le niveau de difficulté
+
+XXX Sur les sorts
+-donner l'info sur la possibilité de contrecoup
+-ajouter un bouton pour incrémenter automatiquement le contre coups
 
 Thanks to Bithir and his Symbaroum-Bithir-Mods as a uge inspiration for this module 
 https://github.com/bithir/symbaroum-bithir-mod/tree/master
