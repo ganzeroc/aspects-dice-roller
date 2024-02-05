@@ -1,7 +1,8 @@
 # FVTT-AspectDices
 Adds a new type of dice: the Aspect Die.  
 Comes with 'Dice So Nice!' support.  
-Usage: 
+
+# Usage pour les sorts: 
 ```
 /r 1db 1de 
 game.aspectmod.macros.RollAspects("1db+1de+1dk+1dr" ) ou game.aspectmod.macros.RollAspects("1db+1de+1dk+1dr", "1db" )
@@ -30,7 +31,7 @@ En cas de présence d'un (de) niveau(x) de difficulté, la macro précise si le 
 en cas de test sur plusieurs aspects, la macro effectue la vérification idépendamment sur chaque aspects présent dans le test. On précise également la marge de réussite du test (sans différencier quelle amrge sur quelle partie du test)
 
 
-Concernant les compétences :
+# Concernant les compétences :
 
 ```
 Pour les compétences :
