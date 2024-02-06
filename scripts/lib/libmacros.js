@@ -478,7 +478,7 @@ export class AspectMacros
 
             for (let char of PJDice) {
                 const possibleNum = parseInt(char);
-                if (!Number.isNaN(possibleNum)) {
+                if (!Number.isNaN(possibleNum)) {  // mettre valeur absolue
                     DiceNumber+=possibleNum
                 };
             }
@@ -503,10 +503,17 @@ export class AspectMacros
         let rolls = await new Roll(rollString.join('+')).evaluate({async:true});
 
         let Arrayresults = this.resultat(rolls);
-        Arrayresults.sort(function(a, b) {
-            return a - b;
-          });
-        
+
+        if (NbrAdvantage>=0){
+            Arrayresults.sort(function(a, b) {
+                return a - b;
+            });
+        }else{
+            Arrayresults.sort(function(a, b) {
+                return b - a;
+            });
+        }
+
         let Nombresucces = 0
         let tempCount = 0
 

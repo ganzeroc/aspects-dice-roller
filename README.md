@@ -39,7 +39,7 @@ game.aspectmod.macros.RollComp("1db+1ds+1dk+1dr",1,"1db",7)
 ```
 
 1) Prompt du roll principal (PJ), entre guillement. Sans ce prompte rien ne fonctionne. (prompt de type "1de + 3db")
-2) Nombre d'avantages. si on veut se passer de cet argument =>  0
+2) Nombre d'avantages. si on veut se passer de cet argument =>  0. Si valeur négative => désavantage
 3) prompt du roll secondaire (compétences ou talent), entre guilement (prompt de type "1d12 + 2d20" ou encore "1db + 2d20"). si on veut se passer de cet argument => "" ou 0
 4) caractéristique à tester; Param obligatoire
 
@@ -50,7 +50,6 @@ On compte ensuite le nombre de succès (résultats <= à la caractéristique à 
 
 idée pour plus tard : 
 XXX Sur les compétences
--gèrer le désavantage
 -ajouter le niveau de difficulté
 
 XXX Sur les sorts
